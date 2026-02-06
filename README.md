@@ -1,14 +1,25 @@
 # nvm-global
 An addon for nvm that enables you to set a systemwide default version for Node.js
 
-(Run the script as the user which you have set up nvm)
-
 # Usage
 ```
-$ ./nvm-global.sh i   # Set
-$ ./nvm-global.sh u   # Unset
+$ git clone https://github.com/ryqjufq0xfffrog/nvm-global.git
+$ cd nvm-global
+$ ./nvm-global.sh i <version>  # Install <version>
+$ ./nvm-global.sh u            # Uninstall
 ```
-Needs you being a sudoer, but do not run the script as root unless you have set up nvm for root. 
+<version> is optional. When omitted, nvm-global will use currently activated version of Node.
+
+Run this script in a shell that is configured for nvm.
+
+# Requirements
+- nvm
+- tr
+- cut
+- sudo
+- ln
+- rm
 
 # How it works
-Actually this looks up for the "default" node version and then creates a symbolic link in /usr/bin/. 
+This script looks up for the node binary in $NVM_DIR/versions/node/<version>
+and then creates a symbolic link in /usr/local/bin/.
